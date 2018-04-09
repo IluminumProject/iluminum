@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Iluminum
+Comment=Iluminum P2P Cryptocurrency
+Comment[fr]=Iluminum, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Iluminum, eşten eşe kriptografik sanal para birimi
+Exec=iluminum-qt %u
+Terminal=false
+Type=Application
+Icon=iluminum128
+MimeType=x-scheme-handler/iluminum;
+Categories=Office;Finance;

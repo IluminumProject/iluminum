@@ -1,0 +1,6 @@
+usr/local/bin/iluminum-qt usr/bin
+share/pixmaps/iluminum32.xpm usr/share/pixmaps
+share/pixmaps/iluminum16.xpm usr/share/pixmaps
+share/pixmaps/iluminum128.png usr/share/pixmaps
+debian/iluminum-qt.desktop usr/share/applications
+debian/iluminum-qt.protocol usr/share/kde4/services/

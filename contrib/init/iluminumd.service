@@ -1,0 +1,22 @@
+[Unit]
+Description=Iluminum's distributed currency daemon
+After=network.target
+
+[Service]
+User=iluminumcore
+Group=iluminumcore
+
+Type=forking
+PIDFile=/var/lib/iluminumd/iluminumd.pid
+ExecStart=/usr/bin/iluminumd -daemon -pid=/var/lib/iluminumd/iluminumd.pid \
+-conf=/etc/iluminumcore/iluminum.conf -datadir=/var/lib/iluminumd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
