@@ -139,13 +139,13 @@ public:
 
         genesis = CreateGenesisBlock(1523288700, 1656836, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-	printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+	//printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
 
         assert(consensus.hashGenesisBlock == uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd"));
         //assert(genesis.hashMerkleRoot == uint256S("0xb3b50a70e442d6ce8fac3bc5aa6630a078caa8b88f3d9b8d105ce3ef33a57f80"));
 
 
-        vSeeds.push_back(CDNSSeedData("104.156.249.248", "dnsseed.iluminum.org"));
+        vSeeds.push_back(CDNSSeedData("104.156.249.248", "96.245.126.165"));
         
 
         // Iluminum addresses start with 'X'
@@ -255,7 +255,7 @@ public:
 
         genesis = CreateGenesisBlock(1523284460, 0, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-	printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+	//printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
 
 
 
