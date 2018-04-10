@@ -92,7 +92,7 @@ public:
         consensus.BIP34Height = 1;
         consensus.BIP34Hash = uint256S("0x000007d91d1254d60e2dd1ae580383070a4ddffa4c64c2eeb4a2f9ecc0414343");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // Iluminum: 1 day
+        consensus.nPowTargetTimespan = 2.0 * 60 ; // Iluminum: 2.0 minutes
         consensus.nPowTargetSpacing = 2.0 * 60; // Iluminum: 2.0 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -120,7 +120,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b0001a"); // 
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd"); // 
+        consensus.defaultAssumeValid = uint256S("0x00000a466bd312c0c5fa03ff54e1037352bd0eda274717c0e5548beb87616870"); // 101
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
