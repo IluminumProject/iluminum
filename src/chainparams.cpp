@@ -92,12 +92,12 @@ public:
         consensus.BIP34Height = 1;
         consensus.BIP34Hash = uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 24 * 60 ; // Iluminum: 2.0 minutes
+        consensus.nPowTargetTimespan = 2.0 * 60 ; // Iluminum: 2.0 minutes
         consensus.nPowTargetSpacing = 2.0 * 60; // Iluminum: 2.0 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nPowKGWHeight = 1500;
-        consensus.nPowDGWHeight = 3000;
+        consensus.nPowKGWHeight = 1017;
+        consensus.nPowDGWHeight = 1017;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
@@ -117,7 +117,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        //consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b0001a"); // 
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b0001a"); // 
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd"); // 101
