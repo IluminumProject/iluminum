@@ -28,10 +28,10 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     txNew.vout[0].scriptPubKey = genesisOutputScript;
 
     CBlock genesis;
-    genesis.nTime    = nTime;
-    genesis.nBits    = nBits;
-    genesis.nNonce   = nNonce;
-    genesis.nVersion = nVersion;
+    genesis.nTime    = 1523510196;
+    genesis.nBits    = 0x1e0ffff0;
+    genesis.nNonce   = 2453749;
+    genesis.nVersion = 1;
     genesis.vtx.push_back(txNew);
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
@@ -51,7 +51,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "4/9/2018 Here We Go Again.";
+    const char* pszTimestamp = "4/12/2018 Here We Go Again.";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -73,7 +73,7 @@ public:
     CMainParams() {
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 210240; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
-        consensus.nMasternodePaymentsStartBlock = 1000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsStartBlock = 40; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 158000; // actual historical value
         consensus.nMasternodePaymentsIncreasePeriod = 576*30; // 17280 - actual historical value
         consensus.nInstantSendKeepLock = 24;
@@ -96,8 +96,8 @@ public:
         consensus.nPowTargetSpacing = 2.0 * 60; // Iluminum: 2.0 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nPowKGWHeight = 1017;
-        consensus.nPowDGWHeight = 1017;
+        consensus.nPowKGWHeight = 3;
+        consensus.nPowDGWHeight = 3;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
@@ -120,7 +120,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b0001a"); // 
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd"); // 101
+        consensus.defaultAssumeValid = uint256S("0x000000ce511318d4116ba8c82b34c12f277ba0810d320fa8c1a668839f1d0aa4"); // 175
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -137,19 +137,19 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1523288700, 1656836, 0x1e0ffff0, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1523510196, 2453749, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 	//printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
 
-        assert(consensus.hashGenesisBlock == uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb3b50a70e442d6ce8fac3bc5aa6630a078caa8b88f3d9b8d105ce3ef33a57f80"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000ee178f0b729949550f38065431d9d1a591ace3a35386c6daa290cf85a94"));
+        assert(genesis.hashMerkleRoot == uint256S("0xa413c24910cf31c2c11d0d88c5f5ceaeb75103ddb7b00ac160c8d6dae3c8e917"));
 
 
-        vSeeds.push_back(CDNSSeedData("104.156.249.248", "96.245.126.165"));
+        vSeeds.push_back(CDNSSeedData("108.160.129.133", "96.245.126.165"));
         
 
-        // Iluminum addresses start with 'X'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,76);
+        // Iluminum addresses start with 'L'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
         // Iluminum script addresses start with '7'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
         // Iluminum private keys start with '7' or 'X'
@@ -176,8 +176,8 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd")),
-            1523288700, // * UNIX timestamp of last checkpoint block
+            ( 0, uint256S("0x00000ee178f0b729949550f38065431d9d1a591ace3a35386c6daa290cf85a94")),
+            1523510196, // * UNIX timestamp of last checkpoint block
             0,    // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             5000        // * estimated number of transactions per day after checkpoint
@@ -253,7 +253,7 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1523284460, 0, 0x1e0ffff0, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1523284460, 1656836, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 	//printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
 
@@ -367,7 +367,7 @@ public:
         nDefaultPort = 16555;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1523288700, 1656836, 0x1e0ffff0, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1523510196, 9656836, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
 
@@ -389,12 +389,12 @@ public:
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
             ( 0, uint256S("0x")),
-            0,
+            1523510196,
             0,
             0
         };
         // Regtest Iluminum addresses start with 'y'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,76);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
         // Regtest Iluminum script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults)
