@@ -120,7 +120,11 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b0001a"); // 
 
         // By default assume that the signatures in ancestors of this block are valid.
+
         consensus.defaultAssumeValid = uint256S("0x000000ce511318d4116ba8c82b34c12f277ba0810d320fa8c1a668839f1d0aa4"); // 175
+
+       
+
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -146,6 +150,8 @@ public:
 
 
         vSeeds.push_back(CDNSSeedData("108.160.129.133", "96.245.126.165"));
+
+      
         
 
         // Iluminum addresses start with 'L'
@@ -177,6 +183,7 @@ public:
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
             ( 0, uint256S("0x00000ee178f0b729949550f38065431d9d1a591ace3a35386c6daa290cf85a94")),
+            
             1523510196, // * UNIX timestamp of last checkpoint block
             0,    // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
