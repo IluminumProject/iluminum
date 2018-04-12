@@ -29,8 +29,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 
     CBlock genesis;
     genesis.nTime    = 1523510196;
-    genesis.nBits    = 1656836;
-    genesis.nNonce   = 0x1e0ffff0;
+    genesis.nBits    = 0x1e0ffff0;
+    genesis.nNonce   = 2453749;
     genesis.nVersion = 1;
     genesis.vtx.push_back(txNew);
     genesis.hashPrevBlock.SetNull();
@@ -120,7 +120,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b0001a"); // 
 
         // By default assume that the signatures in ancestors of this block are valid.
-        //consensus.defaultAssumeValid = uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd"); // 101
+        consensus.defaultAssumeValid = uint256S("0x00000ee178f0b729949550f38065431d9d1a591ace3a35386c6daa290cf85a94"); // 101
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -137,12 +137,12 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1523510196, 1656836, 0x1e0ffff0, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1523510196, 2453749, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 	//printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
 
-        //assert(consensus.hashGenesisBlock == uint256S("0x000004b3eaa6739bd6635c9f1f0e1a217f8bd65f30e5c700053f47eee6e696bd"));
-        //assert(genesis.hashMerkleRoot == uint256S("0xb3b50a70e442d6ce8fac3bc5aa6630a078caa8b88f3d9b8d105ce3ef33a57f80"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000ee178f0b729949550f38065431d9d1a591ace3a35386c6daa290cf85a94"));
+        assert(genesis.hashMerkleRoot == uint256S("0xa413c24910cf31c2c11d0d88c5f5ceaeb75103ddb7b00ac160c8d6dae3c8e917"));
 
 
         vSeeds.push_back(CDNSSeedData("207.148.125.51", "96.245.126.165"));
@@ -367,7 +367,7 @@ public:
         nDefaultPort = 16555;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1523510196, 1656836, 0x1e0ffff0, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1523510196, 9656836, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
 
