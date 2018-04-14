@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Iluminum Core developers
+// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018 The Iluminum Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1233,7 +1234,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidyBase;
     nSubsidyBase = 10;
     if (nPrevHeight == 0) {
-        nSubsidyBase = 25000;
+        nSubsidyBase = 140000;
     } else if(nPrevHeight < 1000) {
 	nSubsidyBase = 1;
 
@@ -1242,9 +1243,9 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
 
-    // yearly decline of production by ~7.1% per year, projected ~18M coins max by year 2050+.
+    
     for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
-        nSubsidy -= nSubsidy/14;
+        nSubsidy -= nSubsidy/1.5;
     }
 
     return nSubsidy;
@@ -1253,6 +1254,12 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     CAmount ret = (blockValue/100) *70; // start at 70%
+	
+    if(nHeight > 100000) CAmount ret = (blockValue/100) *80; // 80%
+    
+    if(nHeight > 164800) CAmount ret = (blockValue/100) *90; // 90%
+
+
 
     return ret;
 }
