@@ -155,8 +155,8 @@ public:
       
         
 
-        // Iluminum addresses start with 'L'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
+        // Iluminum addresses start with 'X'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,75);
         // Iluminum script addresses start with '7'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
         // Iluminum private keys start with '7' or 'X'
@@ -402,7 +402,7 @@ public:
             0
         };
         // Regtest Iluminum addresses start with 'y'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,75);
         // Regtest Iluminum script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults)
