@@ -2,7 +2,7 @@
 ====================
 
 Darkcoin Core 0.11.0 is forked off the Bitcoin Core 0.9.3. The old darkcoin
-versions 0.10.x were forked from the Litecoin 0.8 tree. The following changes
+versions 0.10.x were forked from the Learncoin 0.8 tree. The following changes
 are introduced in this major release. This list is compiled from the release
 notes of Bitcoin Core  0.9.0, 0.9.1, 0.9.2, 0.9.2.1, 0.9.3 and was completed
 with the introduced changes to the Darkcoin Core 0.11.0.
@@ -100,13 +100,13 @@ Command-line options:
 - New option: -nospendzeroconfchange to never spend unconfirmed change outputs
 - New option: -zapwallettxes to rebuild the wallet's transaction information
 - Rename option '-tor' to '-onion' to better reflect what it does
-- Add '-disablewallet' mode to let iluminumd run entirely without wallet (when
+- Add '-disablewallet' mode to let dashd run entirely without wallet (when
   built with wallet)
 - Update default '-rpcsslciphers' to include TLSv1.2
 - make '-logtimestamps' default on and rework help-message
 - RPC client option: '-rpcwait', to wait for server start
 - Remove '-logtodebugger'
-- Allow `-noserver` with iluminumd
+- Allow `-noserver` with dashd
 - Make -proxy set all network types, avoiding a connect leak.
 
 

@@ -150,7 +150,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0xa413c24910cf31c2c11d0d88c5f5ceaeb75103ddb7b00ac160c8d6dae3c8e917"));
 
 
-        vSeeds.push_back(CDNSSeedData("108.160.129.133", "96.245.126.165"));
+        vSeeds.push_back(CDNSSeedData("140.82.37.236", "207.246.88.229"));
 
       
         
