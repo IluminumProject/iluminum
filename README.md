@@ -1,4 +1,4 @@
-Iluminum Core staging tree 0.12.2
+Iluminum Core staging tree 1.0.0.1
 ===============================
 
 What is Iluminum?
