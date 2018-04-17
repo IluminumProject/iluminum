@@ -1,10 +1,6 @@
 Iluminum Core staging tree 0.12.2
 ===============================
 
-`master:` [![Build Status](https://travis-ci.org/iluminumproject/iluminum.svg?branch=master)](https://travis-ci.org/iluminumproject/iluminum) `develop:` [![Build Status](https://travis-ci.org/iluminumproject/iluminum.svg?branch=develop)](https://travis-ci.org/iluminumproject/iluminum/branches)
-
-
-
 What is Iluminum?
 ----------------
 
